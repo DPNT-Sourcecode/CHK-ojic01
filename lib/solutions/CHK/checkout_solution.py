@@ -12,8 +12,8 @@ class CheckoutSolution:
         'E' : 40
         }
         offers = {
-            'A' : (3,130),
-            'B' : (2,45)
+            'A' : [(5,200), (3,130)],
+            'B' : [(2,45)]
         }
         freeOffers = {
             'E' : (2, 'B')
@@ -52,5 +52,6 @@ class CheckoutSolution:
                 totalPrice += count * prices[item]
 
         return totalPrice
+
 
 
