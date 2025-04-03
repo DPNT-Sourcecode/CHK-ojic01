@@ -16,4 +16,3 @@ class CheckoutSolution:
         for item in skus:
             if item not in prices:
                 return -1
-
