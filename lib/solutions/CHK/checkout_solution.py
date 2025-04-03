@@ -54,5 +54,3 @@ class CheckoutSolution:
         return totalPrice
 
 
-
-
