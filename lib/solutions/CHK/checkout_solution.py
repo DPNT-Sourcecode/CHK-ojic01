@@ -8,11 +8,15 @@ class CheckoutSolution:
         prices = {'A' : 50,
         'B' : 30,
         'C' : 20,
-        'D' : 15
+        'D' : 15,
+        'E' : 40
         }
         offers = {
             'A' : (3,130),
             'B' : (2,45)
+        }
+        freeOffers = {
+            'E' : (2, 'B')
         }
 
         #Check items are valid
@@ -24,6 +28,14 @@ class CheckoutSolution:
         counterMapping = Counter(skus)
 
         totalPrice = 0
+
+        #Calculate free items
+        for item, (quantity, freeItem) in freeOffers.items():
+            if item in counterMapping and freeItem in counterMapping:
+                #Calculate how many free items
+                freeCount = counterMapping[item] // quantity
+                #Take away number of free items from the count, as long as > 0
+                counterMapping[freeItem] = max(0, counterMapping[freeItem] - freeCount)
 
         #Iterate through item
         for item, count in counterMapping.items():
@@ -40,6 +52,7 @@ class CheckoutSolution:
                 totalPrice += count * prices[item]
 
         return totalPrice
+
 
 
 
